@@ -1,15 +1,17 @@
 import os
 import shutil
 import customtkinter as ctk
+import tkinter
+from tkinter import filedialog
 
 def acomodar_archivos():
     # Obtener la carpeta de origen (donde están los archivos para acomodar)
-    carpeta_origen = ctk.askdirectory(title="Selecciona la carpeta de origen")
+    carpeta_origen = filedialog.askdirectory(title="Selecciona la carpeta de origen")
 
     if not carpeta_origen:
         return
 
-# Carpeta de destino para cada tipo de archivo (pones tus rutas segun tus criterio)
+    # Carpeta de destino para cada tipo de archivo (pones tus rutas segun tus criterio)
     carpetas_destino = {
         'Videos': r'D:\videos',
         'Fotos': r'C:\Users\jesus\Imágenes',
@@ -33,11 +35,8 @@ root.geometry("300x200")
 root.iconbitmap('APP/ico.ico')
 
 # Crear un botón personalizado en la ventana
-boton_acomodar = ctk.CTkButton(app, text="Acomodar", command=acomodar_archivos)
+boton_acomodar = ctk.CTkButton(root, text="Acomodar", command=acomodar_archivos)
 boton_acomodar.pack(expand=True, fill='both', padx=5, pady=5)
 
 # Ejecutar la aplicación
-app.mainloop()
-#Robii Aragon 2023 
-#https://github.com/RobiiAragon
-#https://twitter.com/robiiaragon
+root.mainloop()
